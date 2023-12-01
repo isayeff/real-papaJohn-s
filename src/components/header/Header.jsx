@@ -6,6 +6,7 @@ import Nav from './Nav'
 function Header() {
     return (
         <>
+        <p>wefwsed</p>
             <HeaderTop />
             <Nav />
         </>
