@@ -15,13 +15,13 @@ function Nav() {
               <li className=' hover:opacity-60'><Link to="/kampaniyalar"> Kampaniyalar</Link></li>
               <li className=' hover:opacity-60'><Link to="/papadias">PapaDias</Link></li>
               <li className=' hover:opacity-60'><Link to="/pizza">pizza</Link></li>
-              <li className=' hover:opacity-60'><Link to="">qəlyanaltı</Link></li>
-              <li className=' hover:opacity-60'><Link to="">salat</Link></li>
-              <li className=' hover:opacity-60'><Link to="">pasta</Link></li>
-              <li className=' hover:opacity-60'><Link to="">içki</Link></li>
-              <li className=' hover:opacity-60'><Link to="">desert</Link></li>
-              <li className=' hover:opacity-60'><Link to="">sous</Link></li>
-              <li className=' hover:opacity-60'><Link to="">0Bal</Link></li>
+              <li className=' hover:opacity-60'><Link to="/qelyanaltı">qəlyanaltı</Link></li>
+              <li className=' hover:opacity-60'><Link to="/salat">salat</Link></li>
+              <li className=' hover:opacity-60'><Link to="/pasta">pasta</Link></li>
+              <li className=' hover:opacity-60'><Link to="/içki">içki</Link></li>
+              <li className=' hover:opacity-60'><Link to="/desert">desert</Link></li>
+              <li className=' hover:opacity-60'><Link to="/sous">sous</Link></li>
+              <li className=' hover:opacity-60'><Link to="/papabonus">0Bal</Link></li>
             </ul>
           </div>
         </div>

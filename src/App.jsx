@@ -7,6 +7,12 @@ import PapaBonus from './components/header/headerPages/PapaBonus'
 import Kampaniayar from './components/header/navPages/Kampaniayar'
 import Papadias from './components/header/navPages/Papadias'
 import Pizza from './components/header/navPages/Pizza'
+import Qelyanalti from './components/header/navPages/Qelyanalti'
+import Salat from './components/header/navPages/Salat'
+import Pasta from './components/header/navPages/Pasta'
+import Icki from './components/header/navPages/Icki'
+import Desert from './components/header/navPages/Desert'
+import Sous from './components/header/navPages/Sous'
 
 function App() {
 
@@ -135,6 +141,12 @@ function App() {
         <Route path='/kampaniyalar' element={<Kampaniayar />} />
         <Route path='/papadias' element={<Papadias />} />
         <Route path='/pizza' element={<Pizza />} />
+        <Route path='/qelyanaltı' element={<Qelyanalti />} />
+        <Route path='/salat' element={<Salat />} />
+        <Route path='/pasta' element={<Pasta />} />
+        <Route path='/içki' element={<Icki />} />
+        <Route path='/desert' element={<Desert />} />
+        <Route path='/sous' element={<Sous />} />
       </Routes>
     </>
   )
