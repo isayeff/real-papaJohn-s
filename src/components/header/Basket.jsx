@@ -2,12 +2,16 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
-export default function Basket() {
-    const [open, setOpen] = useState(false)
+export default function Basket({openBasket, setOpenBasket}) {
 
+    const [open, setOpen] = useState(false)
+    console.log(openBasket);
+    console.log(setOpenBasket);
+    // setOpen(true)
+    
     return (
-        <Transition.Root show={open} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={setOpen}>
+        <Transition.Root show={openBasket} as={Fragment}>
+            <Dialog as="div" className="relative z-10" onClose={setOpenBasket}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-in-out duration-500"
@@ -46,7 +50,7 @@ export default function Basket() {
                                             <button
                                                 type="button"
                                                 className="relative rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                                                onClick={() => setOpen(false)}
+                                                onClick={() => setOpenBasket(false)}
                                             >
                                                 <span className="absolute -inset-2.5" />
                                                 <span className="sr-only">Close panel</span>

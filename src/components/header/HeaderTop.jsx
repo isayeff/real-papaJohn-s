@@ -3,7 +3,11 @@ import { FaBasketShopping, FaUser } from "react-icons/fa6";
 import pjLogo from '../../assets/img/pj_logo_web_new.png'
 import { Link } from 'react-router-dom';
 
-function HeaderTop() {
+function HeaderTop({openBasket, setOpenBasket}) {
+    function openB() {
+        setOpenBasket(!openBasket)
+    }
+
     return (
         <>
             <div className="container max-w-[90%] m-auto bg-opacity-0">
@@ -14,7 +18,7 @@ function HeaderTop() {
                             <li className='hover:text-gray-400'><Link to="/papabonus">PapaBonus</Link></li>
                         </ul>
                         <div className="navLeft max-w-[80px] block md:hidden">
-                            <img className='w-full' src={pjLogo} alt="" />
+                            <Link to='/'><img className='w-full' src={pjLogo} alt="" /></Link>
                         </div>
                     </div>
                     <div className="hTopRight flex basis-[70%] md:basis-[initial] justify-evenly items-center gap-[30px]">
@@ -32,7 +36,7 @@ function HeaderTop() {
                         <span className='block md:hidden'><FaUser /></span>
                         <span className='hidden md:block'>Giriş/Qeydiyyat</span>
                         <div className="basketBtn flex flex-col items-center">
-                            <FaBasketShopping className='text-[1.6rem]' />
+                            <button><FaBasketShopping onClick={openB} className='text-[1.6rem]' /></button>
                             <span className='text-[1rem]'>0₼</span>
                         </div>
                     </div>
