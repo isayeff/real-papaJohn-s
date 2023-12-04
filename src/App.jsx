@@ -131,11 +131,13 @@ function App() {
     }
   ])
 
+  const [basketArr, setBasketArr] = useState([])
+
   return (
     <>
-      <Header />
+      <Header data = {data} basketArr = {basketArr} />
       <Routes>
-        <Route path='/' element={<Main data={data} />} />
+        <Route path='/' element={<Main data={data} basketArr = {basketArr} setBasketArr = {setBasketArr} />} />
         <Route path='/restoranlar' element={<Restoranlar />} />
         <Route path='/papabonus' element={<PapaBonus />} />
         <Route path='/kampaniyalar' element={<Kampaniayar />} />

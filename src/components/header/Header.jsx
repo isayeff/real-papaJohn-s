@@ -4,14 +4,14 @@ import Nav from './Nav'
 import Basket from './Basket'
 
 
-function Header() {
+function Header({data, basketArr}) {
 
     const [openBasket, setOpenBasket] = useState(false)
 
     return (
         <>
             <HeaderTop openBasket = {openBasket} setOpenBasket = {setOpenBasket} />
-            <Basket openBasket = {openBasket} setOpenBasket = {setOpenBasket} />
+            <Basket openBasket = {openBasket} setOpenBasket = {setOpenBasket} data = {data} basketArr = {basketArr} />
             <Nav />
         </>
     )
