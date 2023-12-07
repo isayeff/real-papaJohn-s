@@ -7,7 +7,7 @@ import { LiaTripadvisor } from "react-icons/lia";
 function Footer() {
     return (
         <>
-            <footer className='footer bg-[#AD0F14] py-[20px] lg:py-[0]'>
+            <footer className='footer bg-[#AD0F14] py-[20px] lg:py-[0] overflow-hidden'>
                 <div className='container max-w-[85%] lg:min-w-[95%] m-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between py-[18px] text-white gap-[20px]'>
                     <div className="footerList flex justify-between text-[1rem] gap-[15vw] font-[700] text-center lg:order-2">
                         <ul className='listLeft flex flex-col lg:flex-row items-center gap-[15px]'>
