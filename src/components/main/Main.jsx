@@ -6,7 +6,7 @@ import PizzaCards from './PizzaCards'
 function Main({ data, basketArr, setBasketArr }) {
     return (
         <>
-            <div className="container max-w-[93%] m-auto">
+            <div className="container max-w-[93%] m-auto overflow-hidden">
                 <Promo />
                 <Categories />
                 <PizzaCards data={data} basketArr   = {basketArr} setBasketArr = {setBasketArr} />

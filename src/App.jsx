@@ -13,6 +13,7 @@ import Pasta from './components/header/navPages/Pasta'
 import Icki from './components/header/navPages/Icki'
 import Desert from './components/header/navPages/Desert'
 import Sous from './components/header/navPages/Sous'
+import Footer from './components/footer/Footer'
 
 function App() {
 
@@ -150,6 +151,7 @@ function App() {
         <Route path='/desert' element={<Desert />} />
         <Route path='/sous' element={<Sous />} />
       </Routes>
+      <Footer />
     </>
   )
 }

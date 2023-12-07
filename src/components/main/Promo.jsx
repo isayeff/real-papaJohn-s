@@ -3,7 +3,7 @@ import React from 'react'
 function Promo() {
     return (
         <>
-            <div className="promoDiv mt-[30px] py-5 flex items-center justify-center gap-[50px] bg-[#F1F1F1]">
+            <div className="promoDiv mt-[30px] py-5 flex items-center justify-center gap-[50px] bg-[#F1F1F1] overflow-hidden">
                 <div className="promoTxt lg:flex md:flex items-center text-[2rem] font-[500] gap-5 hidden">
                     <p className='text-[#363636] md:hidden lg:block'>Promo kodunuz var?</p>
                     <p className='text-[#0F9675]'>Endirimdən istifadə edin!</p>
