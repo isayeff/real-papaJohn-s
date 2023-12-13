@@ -10,7 +10,7 @@ function HeaderTop({openBasket, setOpenBasket}) {
 
     return (
         <>
-            <div className="container max-w-[90%] m-auto bg-opacity-0 overflow-hidden">
+            <div className="container max-w-[90%] m-auto overflow-hidden">
                 <div className="headerTop py-[10px] flex justify-between items-center font-bold text-[1.3rem]">
                     <div className="hTopLeft">
                         <ul className='hidden gap-9 md:flex lg:pl-[12vw]'>
