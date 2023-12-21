@@ -64,7 +64,7 @@ export default function Basket({ openBasket, setOpenBasket, data, basketArr }) {
                                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
                                             {
                                                 basketArr.map(item => (
-                                                    <div className="flex w-full space-x-2 sm:space-x-4 my-[15px] shadow-lg shadow-indigo-10/40">
+                                                    <div key={item.id} className="flex w-full space-x-2 sm:space-x-4 my-[15px] shadow-lg shadow-indigo-10/40">
                                                         <img className="flex-shrink-0 object-cover w-[35%] h-25 dark:border-transparent outline-none sm:w-[30%] sm:h-32 dark:bg-gray-500" src={item.img} alt="Polaroid camera" />
                                                         <div className="flex flex-col justify-between w-full pb-2">
                                                             <div className="flex justify-between w-full pb-2 space-x-2">
@@ -73,7 +73,7 @@ export default function Basket({ openBasket, setOpenBasket, data, basketArr }) {
                                                                     <p className="text-sm dark:text-gray-400">{item.category}</p>
                                                                 </div>
                                                                 <div>
-                                                                    <span className="text-lg font-semibold">{item.price} ₼</span>
+                                                                    <span className="text-lg font-semibold">{item.price.sm} ₼</span>
                                                                 </div>
                                                             </div>
                                                             <div className='flex items-center'>

@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
 
 function CardPage({ data }) {
     let params = useParams()
     let { category, id } = params
     console.log(data);
+
+    const [size, setSize] = useState('')
+    function changeSize(e) {
+        setSize(e.target.value);
+    }
     return (
         <>
             {
                 data.map(item => item.category == category && item.id == id &&
                     <div key={item.id}>
+                        {    console.log(Object.entries(item.price))
+}
                         <section className="py-[93px] rounded-md overflow-hidden">
                             <div className="container flex flex-col mx-auto lg:flex-row">
                                 <img src={item.img} alt="" />
@@ -19,7 +26,17 @@ function CardPage({ data }) {
                                     </svg>
                                     <h1 className="text-3xl font-semibold leadi">{item.name}</h1>
                                     <p className="mt-4 mb-8 text-sm">{item.composition}</p>
-                                    <p className='text-[2rem] font-bold'>${item.price}</p>
+                                    <div className='flex items-center gap-[20px]'>
+                                        <select onChange={changeSize} className="select max-w-[250px] p-1 rounded-[5px]">
+                                            <option>xs</option>
+                                            <option>sm</option>
+                                            <option>md</option>
+                                            <option>lg</option>
+                                        </select>
+                                        <p className='text-[2rem] font-bold'>{
+                                            size ? Object.entries(item.price).filter(item => item[0] == size).map(item => item[1]) : item.price.xs
+                                        }₼</p>
+                                    </div>
                                     <button className="self-start px-10 py-3 text-lg font-medium rounded-3xl bg-[#AD0F14] text-white">Add To Basket</button>
                                 </div>
                             </div>
