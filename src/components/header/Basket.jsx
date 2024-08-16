@@ -1,10 +1,22 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useContext } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { IoCheckmarkDone } from "react-icons/io5";
+import { BasketCntx } from '../../services/CntxBasket';
 
-export default function Basket({ openBasket, setOpenBasket, data, basketArr }) {
+export default function Basket({ openBasket, setOpenBasket, data }) {
+
+    const { basketArr } = useContext(BasketCntx)
+    const { setBasketArr } = useContext(BasketCntx)
     console.log(basketArr);
+
+    function handleCount(itemId, n) {        
+        const index = basketArr.findIndex(item => item.id == itemId)
+        n == -1 && basketArr[index].count > 1 ? basketArr[index].count += n : n == 1 ? basketArr[index].count += n : ''
+        console.log(basketArr);
+        setBasketArr([...basketArr])
+        
+    }
 
     return (
         <Transition.Root show={openBasket} as={Fragment}>
@@ -73,14 +85,14 @@ export default function Basket({ openBasket, setOpenBasket, data, basketArr }) {
                                                                     <p className="text-sm dark:text-gray-400">{item.category}</p>
                                                                 </div>
                                                                 <div>
-                                                                    <span className="text-lg font-semibold">{item.price.sm} ₼</span>
+                                                                    <span className="text-lg font-semibold">{item.price.xs || item.price.sm || item.price.md || item.price.lg} ₼</span>
                                                                 </div>
                                                             </div>
                                                             <div className='flex items-center'>
-                                                                <button type="button" className="inline-flex items-center rounded-[5px] border border-transparent bg-indigo-600 pb-[3px] px-[7px] text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">-</button>
-                                                                <span className='px-[5px]'>1</span>
-                                                                <button type="button" className="inline-flex items-center rounded-[5px] border border-transparent bg-indigo-600 pb-[3px] px-[5px] text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">+</button>
-                                                                <span className='px-[10px] py-[5px] ml-2'>40 ₼</span>
+                                                                <button onClick={() =>handleCount(item.id, -1)} type="button" className="inline-flex items-center rounded-[5px] border border-transparent bg-indigo-600 pb-[3px] px-[7px] text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">-</button>
+                                                                <span className='px-[5px]'>{item.count}</span>
+                                                                <button onClick={() =>handleCount(item.id, 1)} type="button" className="inline-flex items-center rounded-[5px] border border-transparent bg-indigo-600 pb-[3px] px-[5px] text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">+</button>
+                                                                <span className='px-[10px] py-[5px] ml-2'>Ümumi qiymət: {basketArr.filter(crd => crd.id == item.id)[0].count * (item.price.xs || item.price.sm || item.price.md || item.price.lg)} ₼</span>
                                                             </div>
                                                             <div className="flex text-sm divide-x">
                                                                 <button type="button" className="flex items-center px-2 py-1 pl-0 space-x-1">

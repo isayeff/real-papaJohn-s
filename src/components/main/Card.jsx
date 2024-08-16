@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { BasketCntx } from '../../services/CntxBasket';
 
-function Card({id, img, category, name, composition, price, basketArr, setBasketArr}) {
+function Card({id, img, category, name, composition, price}) {
 
-    function addBasket() {
-        setBasketArr([...basketArr ,{id, img, name, price, category}])
+    const { basketArr } = useContext(BasketCntx)
+    const { setBasketArr } = useContext(BasketCntx)
+
+    function addBasket(itemId) {
+        const index = basketArr.findIndex(item => item.id == itemId)
+        if (index == -1) {
+            setBasketArr([...basketArr ,{id, img, name, price, category, count: 1}])
+        } else {
+            basketArr[index].count++
+        }
         console.log(basketArr);
     }
 
@@ -17,7 +26,7 @@ function Card({id, img, category, name, composition, price, basketArr, setBasket
                 <div className="cardBottom">
                     <div className='cardTitle flex justify-between'>
                         <h3 className='font-bold text-[1.2rem]'>{name}</h3>
-                        <button onClick={addBasket} className='bg-[#0F9675] px-[15px] py-[9px] rounded-[5px] text-white font-[500] hover:bg-[#0D8164] transition duration-200 ease-out'>BUNU SEÇ</button>
+                        <button onClick={() => addBasket(id)} className='bg-[#0F9675] px-[15px] py-[9px] rounded-[5px] text-white font-[500] hover:bg-[#0D8164] transition duration-200 ease-out'>BUNU SEÇ</button>
                     </div>
                     <div className="cardContent my-3">
                         {composition}

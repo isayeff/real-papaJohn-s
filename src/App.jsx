@@ -29,13 +29,11 @@ function App() {
   }, [])
   console.log(data);
 
-  const [basketArr, setBasketArr] = useState([])
-
   return (
     <>
-      <Header data={data} basketArr={basketArr} />
+      <Header />
       <Routes>
-        <Route path='/' element={data == false ?  <LoadingPage /> : <Main data={data} basketArr={basketArr} setBasketArr={setBasketArr} />} />
+        <Route path='/' element={data == false ?  <LoadingPage /> : <Main data={data}/>} />
         <Route path='/:category/:id' element={<CardPage data={data} />} />
         <Route path='/restoranlar' element={<Restoranlar />} />
         <Route path='/papabonus' element={<PapaBonus />} />
